@@ -7,8 +7,8 @@ This setup is great for writing quick apps in PHP using Lumen from an any Docker
 ## Clone this repo
 
 ```bash
-git clone git@github.com:AngCosmin/docker-lumen-mysql.git
-cd docker-lumen
+git clone git@github.com:AngCosmin/docker-lumen-mysql.git lumen
+cd lumen
 ```
 
 ## Create Lumen App
