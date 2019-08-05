@@ -13,11 +13,20 @@ cd lumen
 
 ## Create Lumen App
 
-now, create the app in the `images\php` directory named `app`
+Now, create the app in the `images/php` directory named `app`
 
 ```bash
 cd images/php
 docker run --rm -it -v $(pwd):/app saada/lumen-cli lumen new app
+```
+
+## Allow Lumen to use database
+
+Navigate to `images/php/app/bootstrap` and open `app.php`. Uncomment these two line:  
+```
+$app->withFacades();
+
+$app->withEloquent();
 ```
 
 ### Configuration
