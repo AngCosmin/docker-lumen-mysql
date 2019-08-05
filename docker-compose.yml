@@ -7,6 +7,8 @@ services:
       - php
     ports:
       - "80:80"
+    networks:
+      - appnet
 
   php:
     build: images/php
@@ -32,13 +34,18 @@ services:
       DB_PASSWORD: root
       MEMCACHED_HOST: cache
       CACHE_DRIVER: memcached
+    networks:
+      - appnet
 
   db:
     image: mysql:5.7
     ports:
-      - "6000:3306"
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: app
+    volumes:
+      - database:/var/lib/mysql
     networks:
       - appnet
 
@@ -52,8 +59,6 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
-    volumes:
-      - database:/var/lib/mysql
     networks:
       - appnet
 
