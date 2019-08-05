@@ -18,8 +18,10 @@ To change configuration values, look in the `docker-compose.yml` file and change
 ### Build & Run
 
 ```bash
-docker-compose up --build
+docker-compose up --build -d
 ```
+
+`-d`: run as deamon (optional)
 
 ### Install packages
 
