@@ -11,24 +11,6 @@ git clone git@github.com:AngCosmin/docker-lumen-mysql.git lumen
 cd lumen
 ```
 
-## Create Lumen App
-
-Now, create the app in the `images/php` directory named `app`
-
-```bash
-cd images/php
-docker run --rm -it -v $(pwd):/app saada/lumen-cli lumen new app
-```
-
-## Allow Lumen to use database
-
-Navigate to `images/php/app/bootstrap` and open `app.php`. Uncomment these two line:  
-```
-$app->withFacades();
-
-$app->withEloquent();
-```
-
 ### Configuration
 
 To change configuration values, look in the `docker-compose.yml` file and change the `php` container's environment variables. These directly correlate to the Lumen environment variables.
@@ -51,6 +33,22 @@ Feel free to configure the default port 80 in `docker-compose.yml` to whatever y
 ```bash
 docker-compose down
 ```
+
+## If you want to create a fresh Lumen App
+
+```bash
+cd images/php
+docker run --rm -it -v $(pwd):/app saada/lumen-cli lumen new app
+```
+
+To allow Lumen to use database navigate to `images/php/app/bootstrap` and open `app.php`. Uncomment these two line:  
+```
+$app->withFacades();
+
+$app->withEloquent();
+```
+
+Done!
 
 ## Contribute
 
