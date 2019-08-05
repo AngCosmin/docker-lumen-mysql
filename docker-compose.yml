@@ -14,7 +14,7 @@ services:
     build: images/php
     volumes:
       - ./images/php:/var/www/html
-    working_dir: /var/www/html/app/public
+    working_dir: /var/www/html/app
     command: php-fpm
     links:
       - db
@@ -34,6 +34,7 @@ services:
       DB_PASSWORD: root
       MEMCACHED_HOST: cache
       CACHE_DRIVER: memcached
+    container_name: container-php
     networks:
       - appnet
 
