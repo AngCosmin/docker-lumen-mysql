@@ -79,7 +79,7 @@ Run `heroku login`
 `heroku config:set DB_CONNECTION=pgsql DB_HOST=... DB_DATABASE=... DB_USERNAME=... DB_PASSWORD=... DB_PORT=...`
 6. Open application `heroku open`
 
-*Note:*  
+***Note:***  
 To run artisan commands use `heroku run php artisan ...`.  
 If you want debugger you can run `heroku config:set APP_DEBUG=true`
 
