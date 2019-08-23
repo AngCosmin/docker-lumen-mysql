@@ -72,8 +72,8 @@ Run `heroku login`
 
 ### Setup database
 1. Go to https://data.heroku.com/
-2. Create Heroku Postgres -> Install Heroku Postgres
-3. Search for your app (myapp) created before press Create
+2. **Create Heroku Postgres** -> **Install Heroku Postgres**
+3. Search for your app (myapp) created before press **Create**
 4. Go to https://data.heroku.com/ and click your database
 5. Go to **Setting** -> **View credentials** and set env variables for Lumen project like this:  
 `heroku config:set DB_CONNECTION=pgsql DB_HOST=... DB_DATABASE=... DB_USERNAME=... DB_PASSWORD=... DB_PORT=...`
