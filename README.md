@@ -57,6 +57,32 @@ $app->withEloquent();
 
 Done!
 
+## Deploy to Heroku
+Run `heroku login`
+
+### Setup Lumen
+1. Navigate to `images\php\app`
+2. If you don't already have the file `Procfile` then create it and add this inside  
+`web: vendor/bin/heroku-php-apache2 public/`
+3. `heroku create --region eu myapp`
+4. `heroku config:set APP_KEY=SomethingRandom`  
+5. `git add .`  
+6. `git commit -m "First commit"`  
+7. `git push heroku master`  
+
+### Setup database
+1. Go to https://data.heroku.com/
+2. Create Heroku Postgres -> Install Heroku Postgres
+3. Search for your app (myapp) created before press Create
+4. Go to https://data.heroku.com/ and click your database
+5. Go to **Setting** -> **View credentials** and set env variables for Lumen project like this:  
+`heroku config:set DB_CONNECTION=pgsql DB_HOST=... DB_DATABASE=... DB_USERNAME=... DB_PASSWORD=... DB_PORT=...`
+6. Open application `heroku open`
+
+*Note:*  
+To run artisan commands use `heroku run php artisan ...`.  
+If you want debugger you can run `heroku config:set APP_DEBUG=true`
+
 ## Contribute
 
 Submit a Pull Request!
