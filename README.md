@@ -64,11 +64,12 @@ Run `heroku login`
 1. Navigate to `images\php\app`
 2. If you don't already have the file `Procfile` then create it and add this inside  
 `web: vendor/bin/heroku-php-apache2 public/`
-3. `heroku create --region eu myapp`
-4. `heroku config:set APP_KEY=SomethingRandom`  
-5. `git add .`  
-6. `git commit -m "First commit"`  
-7. `git push heroku master`  
+3. `git init`
+4. `heroku create --region eu myapp`
+5. `heroku config:set APP_KEY=SomethingRandom`  
+6. `git add .`  
+7. `git commit -m "First commit"`  
+8. `git push heroku master`  
 
 ### Setup database
 1. Go to https://data.heroku.com/
