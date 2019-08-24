@@ -12,3 +12,9 @@
 */
 
 $router->get('/', "ExampleController@index");
+
+$router->post('/auth', "AuthController@authenticate");
+
+$router->group(['middleware' => 'auth'], function () use ($router) {
+    $router->get('/secret', 'ExampleController@secret');
+});
