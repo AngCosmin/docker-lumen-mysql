@@ -8,6 +8,30 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
+    public function register(Request $request) {
+        $data = $request->json()->all();
+
+        if (!array_key_exists('email', $data)) {
+            return response()->json(['message' => 'Key \'email\' is no present'], 400);
+        }
+
+        $user = User::where('email', $data['email'])->first();
+        if ($user) {
+            return response()->json(['message' => 'Email already exists'], 400);
+        }
+
+        if (!array_key_exists('password', $data)) {
+            return response()->json(['message' => 'Key \'password\' is no present'], 400);
+        }
+
+        $user = new User();
+        $user->email = $data['email'];
+        $user->password = Hash::make($data['password']);
+        $user->save();
+
+        return response()->json(['message' => 'User successfully created']);
+    }
+
     public function authenticate(Request $request) {
         $data = $request->json()->all();
 
@@ -20,7 +44,6 @@ class AuthController extends Controller
         }
 
         $user = User::where('email', $data['email'])->first();
-
         if (!$user) {
             return response()->json(['message' => 'Invalid credentials'], 400);
         }
