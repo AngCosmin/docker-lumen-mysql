@@ -16,6 +16,11 @@ class Product extends Model
     ];
 
     protected $hidden = [
-        
+
     ];
+
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category');
+    }
 }

@@ -11,6 +11,16 @@ class Restaurant extends Model
     ];
 
     protected $hidden = [
-        
+
     ];
+
+    public function categories()
+    {
+        return $this->hasMany('App\Models\Category');
+    }
+
+    public function products()
+    {
+        return $this->hasMany('App\Models\Product');
+    }
 }
