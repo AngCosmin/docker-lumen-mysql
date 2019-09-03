@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTables extends Migration
+class CreateForeignKeyProductsCategoryId extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateTables extends Migration
      */
     public function up()
     {
-        Schema::create('tables', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('restaurant_id')->unsigned()->index()->nullable();
-            $table->string('code', 20)->nullable();
-            $table->timestamps();
+        Schema::table('products', function (Blueprint $table) {
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
         });
     }
 
@@ -28,6 +25,8 @@ class CreateTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tables');
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropForeign(['category_id']);
+        });
     }
 }

@@ -11,6 +11,6 @@ class RestaurantsTableSeeder extends Seeder
      */
     public function run()
     {
-        $resturants = factory('App\Models\Restaurant', 3)->create();
+        factory('App\Models\Restaurant', 3)->create();
     }
 }

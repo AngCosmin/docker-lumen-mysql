@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateForeignKey extends Migration
+class CreateForeignKeyCategoriesRestaurantId extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateForeignKey extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
+        Schema::table('categories', function (Blueprint $table) {
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('set null');
         });
     }
@@ -25,6 +25,8 @@ class CreateForeignKey extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('restaurant_id');
+        Schema::table('categories', function (Blueprint $table) {
+            $table->dropForeign(['restaurant_id']);
+        });
     }
 }

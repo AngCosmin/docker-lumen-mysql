@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductCategories extends Migration
+class CreateUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CreateProductCategories extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', 50)->nullable();
+            $table->string('name', 60)->nullable();
+            $table->string('email', 50)->nullable();
+            $table->string('password', 100)->nullable();
+            $table->string('google_token', 100)->nullable();
+            $table->string('token', 100)->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ class CreateProductCategories extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('users');
     }
 }
