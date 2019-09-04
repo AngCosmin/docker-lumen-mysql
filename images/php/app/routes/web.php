@@ -16,8 +16,6 @@ $router->get('/', "ExampleController@index");
 $router->post('/register', "AuthController@register");
 $router->post('/auth', "AuthController@authenticate");
 
-// $router->group(['middleware' => 'auth'], function () use ($router) {
-    $router->get('/restaurant', 'RestaurantController@getRestaurant');
-    $router->get('/restaurant/categories', 'RestaurantController@getCategories');
-    $router->get('/restaurant/menu', 'RestaurantController@getMenu');
-// });
+$router->group(['middleware' => 'auth'], function () use ($router) {
+    $router->get('/secret', 'ExampleController@secret');
+});

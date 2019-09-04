@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
-use App\Models\Restaurant;
-use Illuminate\Http\Request;
+use App\Models\User;
 
-class MenuController extends Controller
+class ExampleController extends Controller
 {
-
-
+    public function index() {
+        return "Hello!";
+    }
 
     public function secret() {
         $user = \Auth::user();
