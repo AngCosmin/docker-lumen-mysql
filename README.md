@@ -82,7 +82,7 @@ Run `heroku login`
 
 ***Note:***  
 To run artisan commands use `heroku run php artisan ...`.  
-If you want debugger you can run `heroku config:set APP_DEBUG=true`
+If you want debugger you can run `heroku config:set APP_DEBUG=true APP_ENV=development`
 
 ## Contribute
 
