@@ -34,7 +34,7 @@ services:
       DB_PASSWORD: root
       MEMCACHED_HOST: cache
       CACHE_DRIVER: memcached
-    container_name: container-php
+    container_name: app
     networks:
       - appnet
 
