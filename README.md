@@ -26,7 +26,7 @@ docker-compose up --build -d
 ### Install packages
 
 ```bash
-docker exec container-php composer install
+docker exec app composer install
 ```
 
 Navigate to [http://localhost:80](http://localhost:80)
